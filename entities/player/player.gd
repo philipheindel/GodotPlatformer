@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED: float = 200.0
-const JUMP_VELOCITY: float = -200.0
+const JUMP_VELOCITY: float = -300.0
 
 
 @export_enum("Blue", "Green", "Pink", "Yellow") var player_type: String = "Green"
@@ -12,6 +12,8 @@ const JUMP_VELOCITY: float = -200.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walking: bool = false
 var falling: bool = false
+var max_jump_duration: float = 0.1
+var jump_total: float
 
 
 func _ready():
@@ -23,11 +25,19 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")): # and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	
 	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and not is_on_floor():
 		falling = true
+		
+
+	if not falling and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")) and is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		jump_total += delta
+		if jump_total >= max_jump_duration:
+			falling = true
+			jump_total = 0.0
+		print(jump_total)
+	
+	
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -41,6 +51,8 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimatedSprite2D.animation = _get_animation("idle")
 	
+	if Input.is_action_pressed("ui_down") and is_on_floor():
+		velocity = Vector2(-600.0, -200.0)
 	move_and_slide()
 
 
