@@ -139,8 +139,7 @@ script = ExtResource("1_7utnr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1ote")
-animation = &"blue_idle"
-frame_progress = 0.528357
+animation = &"green_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ejnsj")
