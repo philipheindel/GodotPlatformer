@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
 
-const SPEED = 200.0
-const JUMP_VELOCITY = -200.0
+const SPEED: float = 200.0
+const JUMP_VELOCITY: float = -200.0
 
 
 @export_enum("Blue", "Green", "Pink", "Yellow") var player_type: String = "Green"
+@export var coin_count: int = 0
 
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walking: bool = false
 var falling: bool = false
@@ -48,3 +48,4 @@ func _physics_process(delta):
 
 func _get_animation(animation: String) -> String:
 	return "{player_type}_{animation}".format({"player_type": player_type, "animation": animation}).to_lower()
+
