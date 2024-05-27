@@ -24,7 +24,6 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")): # and is_on_floor():
-		print(velocity.y)
 		velocity.y = JUMP_VELOCITY
 	
 	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and not is_on_floor():
@@ -41,7 +40,6 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		$AnimatedSprite2D.animation = _get_animation("idle")
-	
 	
 	move_and_slide()
 
