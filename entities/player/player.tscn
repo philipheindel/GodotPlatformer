@@ -146,3 +146,4 @@ shape = SubResource("CapsuleShape2D_ejnsj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
+editor_draw_limits = true
