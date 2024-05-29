@@ -7,13 +7,13 @@ const JUMP_VELOCITY: float = -300.0
 
 @export_enum("Blue", "Green", "Pink", "Yellow") var player_type: String = "Green"
 @export var coin_count: int = 0
+@export var max_jump_duration: float = 0.1
 
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var walking: bool = false
 var falling: bool = false
-var max_jump_duration: float = 0.1
-var jump_total: float
+var jump_total: float = 0.0
 
 
 func _ready():
@@ -27,17 +27,19 @@ func _physics_process(delta):
 	else:
 		falling = false
 	
-	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and not is_on_floor():
+	if velocity.y > 0:
+		falling = true
+	
+	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")):
 		falling = true
 		jump_total = 0.0
 	
-	if not falling and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")):# and is_on_floor():
+	if not falling and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")):
 		velocity.y = JUMP_VELOCITY * (jump_total * 10)
 		jump_total += delta
 		if jump_total >= max_jump_duration:
 			falling = true
 			jump_total = 0.0
-		print(jump_total)
 	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
@@ -53,6 +55,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_down") and is_on_floor():
 		velocity = Vector2(-600.0, -200.0)
+	
 	move_and_slide()
 
 

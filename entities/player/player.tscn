@@ -142,6 +142,7 @@ sprite_frames = SubResource("SpriteFrames_m1ote")
 animation = &"green_idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
 shape = SubResource("CapsuleShape2D_ejnsj")
 
 [node name="Camera2D" type="Camera2D" parent="."]
