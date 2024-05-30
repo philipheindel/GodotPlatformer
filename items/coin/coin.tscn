@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://uqyuj5qrdujq"]
 
-[ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/level/tilemap_packed_alt.png" id="1_710kg"]
+[ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="1_710kg"]
 [ext_resource type="Script" path="res://items/coin/coin.gd" id="2_vr5gi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0163i"]
