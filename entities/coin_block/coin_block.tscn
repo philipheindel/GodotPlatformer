@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://qvq28rkkouix"]
+
+[ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/level/tilemap_packed_alt.png" id="1_82841"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbj16"]
+atlas = ExtResource("1_82841")
+region = Rect2(198, 0, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm3c6"]
+atlas = ExtResource("1_82841")
+region = Rect2(198, 18, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3dhpc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbj16")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm3c6")
+}],
+"loop": true,
+"name": &"popped",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_npfg7"]
+size = Vector2(16, 16)
+
+[node name="Coin_Block" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3dhpc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_npfg7")

@@ -41,6 +41,7 @@ func _physics_process(delta):
 			falling = true
 			jump_total = 0.0
 	
+	
 	var direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		$AnimatedSprite2D.animation = _get_animation("walking")
@@ -57,6 +58,10 @@ func _physics_process(delta):
 		velocity = Vector2(-600.0, -200.0)
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collider_name: String = get_slide_collision(i).get_collider().name
+		if collider_name != "TileMap":
+			print(collider_name)
 
 
 func _get_animation(animation: String) -> String:
