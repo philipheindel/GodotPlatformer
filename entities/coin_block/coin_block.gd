@@ -18,6 +18,7 @@ func _physics_process(delta):
 		pop_frames += 1
 		position.y = position.y + pop_direction
 		if pop_frames == max_pop_frames and pop_direction > 0:
+			$".".remove_child($Area2D)
 			popped = true
 			return
 		if pop_frames == max_pop_frames:
