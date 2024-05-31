@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://q60upyhtmqod"]
+[gd_scene load_steps=20 format=3 uid="uid://q60upyhtmqod"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_7utnr"]
 [ext_resource type="Texture2D" uid="uid://bbhk34q8qptcg" path="res://assets/sprites/entities/tilemap-characters_packed.png" id="1_und8p"]
@@ -26,6 +26,18 @@ region = Rect2(24, 0, 24, 24)
 [sub_resource type="AtlasTexture" id="AtlasTexture_w5ih4"]
 atlas = ExtResource("1_und8p")
 region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siu7s"]
+atlas = ExtResource("1_und8p")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rb4gv"]
+atlas = ExtResource("1_und8p")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n2yc"]
+atlas = ExtResource("1_und8p")
+region = Rect2(0, 24, 24, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_clxrl"]
 atlas = ExtResource("1_und8p")
@@ -93,6 +105,25 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_siu7s")
+}],
+"loop": true,
+"name": &"orange_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rb4gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8n2yc")
+}],
+"loop": true,
+"name": &"orange_walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_clxrl")
 }],
 "loop": true,
@@ -139,7 +170,7 @@ script = ExtResource("1_7utnr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_m1ote")
-animation = &"green_idle"
+animation = &"yellow_walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
