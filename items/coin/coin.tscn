@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://uqyuj5qrdujq"]
+[gd_scene load_steps=8 format=3 uid="uid://uqyuj5qrdujq"]
 
 [ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="1_710kg"]
 [ext_resource type="Script" path="res://items/coin/coin.gd" id="2_vr5gi"]
+[ext_resource type="AudioStream" uid="uid://nbpca6h03e48" path="res://assets/audio/impactGlass_light_002.ogg" id="3_pmrpu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0163i"]
 atlas = ExtResource("1_710kg")
@@ -38,5 +39,9 @@ script = ExtResource("2_vr5gi")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vyf4o")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pmrpu")
+bus = &"Coins"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
