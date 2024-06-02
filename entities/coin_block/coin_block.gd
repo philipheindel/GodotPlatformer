@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 
 func _on_area_2d_body_entered(body):
-	if popped:
+	if popped or popping:
 		return
 	if body.name == "Player":
 		$AudioStreamPlayer.play()

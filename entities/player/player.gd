@@ -65,6 +65,14 @@ func _physics_process(delta):
 			print(collider_name)
 
 
+func add_coin():
+	coin_count += 1
+
+
+func hurt():
+	pass
+
+
 func _get_animation(animation: String) -> String:
 	return "{player_type}_{animation}".format({"player_type": player_type, "animation": animation}).to_lower()
 

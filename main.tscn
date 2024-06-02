@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://jbh61xqo0tsy"]
+
+[ext_resource type="PackedScene" uid="uid://b51h3bf70hemo" path="res://tile_map.tscn" id="1_pml2k"]
+[ext_resource type="PackedScene" uid="uid://q60upyhtmqod" path="res://entities/player/player.tscn" id="2_tpj0s"]
+[ext_resource type="PackedScene" uid="uid://qvq28rkkouix" path="res://entities/coin_block/coin_block.tscn" id="3_xiees"]
+
+[node name="Main" type="Node2D"]
+
+[node name="TileMap" parent="." instance=ExtResource("1_pml2k")]
+
+[node name="Player" parent="." instance=ExtResource("2_tpj0s")]
+position = Vector2(594, 564)
+
+[node name="Coin_Block" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(582, 543)
+
+[node name="Coin_Block2" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(564, 543)
+
+[node name="Coin_Block3" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(546, 543)
+
+[node name="Coin_Block4" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(528, 543)
+
+[node name="Coin_Block5" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(510, 543)
+
+[node name="Coin_Block6" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(492, 543)
+
+[node name="Coin_Block7" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(474, 543)
+
+[node name="Coin_Block8" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(456, 543)
+
+[node name="Coin_Block9" parent="." instance=ExtResource("3_xiees")]
+position = Vector2(438, 543)
