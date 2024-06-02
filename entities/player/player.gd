@@ -5,8 +5,12 @@ const SPEED: float = 200.0
 const JUMP_VELOCITY: float = -300.0
 
 
+@export_category("Character")
 @export_enum("Blue", "Green", "Orange", "Pink", "Yellow") var player_type: String = "Green"
 @export var coin_count: int = 0
+
+
+@export_subgroup("Physics")
 @export var max_jump_duration: float = 0.1
 @export var do_inertia: bool = true
 
