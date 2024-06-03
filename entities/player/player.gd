@@ -74,7 +74,7 @@ func add_coin():
 
 
 func hurt():
-	pass
+	print("Hurt player")
 
 
 func _get_animation(animation: String) -> String:
