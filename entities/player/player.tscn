@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://q60upyhtmqod"]
+[gd_scene load_steps=21 format=3 uid="uid://q60upyhtmqod"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_7utnr"]
 [ext_resource type="Texture2D" uid="uid://bbhk34q8qptcg" path="res://assets/sprites/entities/tilemap-characters_packed.png" id="1_und8p"]
+[ext_resource type="PackedScene" uid="uid://vmjaqgsp0ov1" path="res://entities/player/health_heart.tscn" id="3_2mbrb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqe34"]
 atlas = ExtResource("1_und8p")
@@ -179,3 +180,6 @@ shape = SubResource("CapsuleShape2D_ejnsj")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 editor_draw_limits = true
+
+[node name="Health_Heart" parent="." instance=ExtResource("3_2mbrb")]
+position = Vector2(-278, -153)
