@@ -11,7 +11,7 @@ var max_pop_frames: int = 5
 var pop_frames: int = 0
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if popped:
 		return
 	if popping:

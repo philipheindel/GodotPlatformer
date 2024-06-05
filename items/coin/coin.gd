@@ -4,7 +4,7 @@ extends AnimatedSprite2D
 var collected: bool = false
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if collected and not $AudioStreamPlayer.playing:
 		queue_free()
 

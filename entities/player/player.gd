@@ -78,7 +78,8 @@ func add_coin():
 func hurt():
 	health -= 1
 	$Health.update(health)
-	print("Hurt player")
+	if health == 0:
+		print("Dead")
 
 
 func _get_animation(animation: String) -> String:
