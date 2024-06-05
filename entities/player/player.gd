@@ -67,7 +67,8 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collider_name: String = get_slide_collision(i).get_collider().name
 		if collider_name != "TileMap":
-			print(collider_name)
+			#print(collider_name)
+			pass
 
 
 func add_coin():
@@ -75,7 +76,7 @@ func add_coin():
 
 
 func hurt():
-	$Health_Heart.hit()
+	$Health.hit()
 	print("Hurt player")
 
 

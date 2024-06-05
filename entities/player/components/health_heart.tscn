@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb5bh8dbfpq3b"]
+
+[ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="1_0st5e"]
+[ext_resource type="Script" path="res://entities/player/components/health_heart.gd" id="2_6kwye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xkeb"]
+atlas = ExtResource("1_0st5e")
+region = Rect2(108, 36, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2r72x"]
+atlas = ExtResource("1_0st5e")
+region = Rect2(90, 36, 18, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p67is"]
+atlas = ExtResource("1_0st5e")
+region = Rect2(72, 36, 18, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1b45d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xkeb")
+}],
+"loop": true,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2r72x")
+}],
+"loop": true,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p67is")
+}],
+"loop": true,
+"name": &"2",
+"speed": 5.0
+}]
+
+[node name="Health_Heart" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_1b45d")
+animation = &"0"
+script = ExtResource("2_6kwye")

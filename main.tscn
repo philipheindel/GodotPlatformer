@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://com6enwuw43xy"]
+[gd_scene load_steps=7 format=3 uid="uid://com6enwuw43xy"]
 
 [ext_resource type="PackedScene" uid="uid://d0wf6oq4pnobl" path="res://levels/tile_map.tscn" id="1_pml2k"]
 [ext_resource type="Script" path="res://main.gd" id="1_sirwo"]
 [ext_resource type="PackedScene" uid="uid://q60upyhtmqod" path="res://entities/player/player.tscn" id="2_tpj0s"]
 [ext_resource type="PackedScene" uid="uid://qvq28rkkouix" path="res://entities/coin_block/coin_block.tscn" id="3_xiees"]
 [ext_resource type="PackedScene" uid="uid://uqyuj5qrdujq" path="res://items/coin/coin.tscn" id="4_bg0oh"]
+[ext_resource type="PackedScene" uid="uid://b0yf2ne02xmlj" path="res://entities/drill_head/drill_head.tscn" id="6_so0t6"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_sirwo")
@@ -54,5 +55,8 @@ offset_top = 462.0
 offset_right = 638.0
 offset_bottom = 499.0
 text = "Start"
+
+[node name="Drill_Head" parent="." instance=ExtResource("6_so0t6")]
+position = Vector2(625, 564)
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
