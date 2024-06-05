@@ -8,7 +8,7 @@ const JUMP_VELOCITY: float = -300.0
 @export_category("Character")
 @export_enum("Blue", "Green", "Orange", "Pink", "Yellow") var player_type: String = "Green"
 @export var coin_count: int = 0
-@export var health: int = 6
+@export var health: int = 8
 
 
 @export_subgroup("Physics")
@@ -76,7 +76,8 @@ func add_coin():
 
 
 func hurt():
-	$Health.hit()
+	health -= 1
+	$Health.update(health)
 	print("Hurt player")
 
 
