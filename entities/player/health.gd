@@ -2,10 +2,17 @@ extends Node2D
 
 
 func update(health: int):
-	$Heart_1.animation = "0"
-	$Heart_2.animation = "0"
-	$Heart_3.animation = "0"
-	$Heart_4.animation = "0"
+	var max_health: int = 0
+	for point in range(1, 5):
+		get_node("Heart_" + str(point)).animation = "0"
+		max_health += 2
+	
+	var index: int = 1
+	for point in health:
+		var current_heart = get_node("Heart_" + str(index))
+		if (point % 2) == 0 and point != 0:
+			index += 1
+	
 	if health > 0:
 		$Heart_1.animation = "1"
 	if health > 1:
