@@ -27,6 +27,11 @@ func _ready():
 	$AnimatedSprite2D.play()
 
 
+func _process(delta):
+	#$Camera2D.position.x = $".".position.x
+	pass
+
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
