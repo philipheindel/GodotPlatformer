@@ -18,31 +18,19 @@ layer_2/tile_data = PackedInt32Array(196619, 589827, 2, 131083, 589827, 2, 65547
 position = Vector2(599, -12)
 
 [node name="Coin_Block" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(587, -33)
+position = Vector2(511, -33)
 
 [node name="Coin_Block2" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(569, -33)
+position = Vector2(493, -33)
 
 [node name="Coin_Block3" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(551, -33)
+position = Vector2(475, -33)
 
 [node name="Coin_Block4" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(533, -33)
+position = Vector2(457, -33)
 
 [node name="Coin_Block5" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(515, -33)
-
-[node name="Coin_Block6" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(497, -33)
-
-[node name="Coin_Block7" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(479, -33)
-
-[node name="Coin_Block8" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(461, -33)
-
-[node name="Coin_Block9" parent="." instance=ExtResource("3_xiees")]
-position = Vector2(443, -33)
+position = Vector2(439, -33)
 
 [node name="Coin" parent="." instance=ExtResource("4_bg0oh")]
 position = Vector2(411, -14)
