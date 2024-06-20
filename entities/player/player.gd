@@ -26,7 +26,7 @@ func _ready():
 	$AnimatedSprite2D.animation = _get_animation("idle")
 	$AnimatedSprite2D.play()
 	$Camera2D.set_as_top_level(true)
-
+	
 
 func _process(delta):
 	$Camera2D.position.x = position.x
