@@ -9,3 +9,6 @@ For the visual assets I am using a customized version of the [Pixel Platformer](
 
 ## Purpose
 Initially I had planned to make this it's own self contained project, but I think I will shift it to be more of a template project. Though, as I get more familiar with the engine, that plan might change. 
+
+## Game Ideas
+I think the idea will be that there are multiple variations of the main alien character and each one will have a different ability (e.g. unique jumping physics, unique speed, ranged attack, etc). 
