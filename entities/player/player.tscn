@@ -1,8 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://q60upyhtmqod"]
+[gd_scene load_steps=27 format=3 uid="uid://q60upyhtmqod"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_7utnr"]
 [ext_resource type="Texture2D" uid="uid://bbhk34q8qptcg" path="res://assets/sprites/entities/tilemap-characters_packed.png" id="1_und8p"]
-[ext_resource type="Texture2D" uid="uid://54gqstar2itb" path="res://assets/sprites/level/tilemap_packed.png" id="3_h8y8n"]
+[ext_resource type="PackedScene" uid="uid://dbvkhruu7sfag" path="res://entities/player/components/health/health.tscn" id="3_ujhaq"]
 [ext_resource type="Script" path="res://entities/player/health.gd" id="4_pdtfd"]
 [ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="5_dp5x0"]
 
@@ -168,21 +168,6 @@ animations = [{
 radius = 9.0
 height = 23.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0dnw1"]
-atlas = ExtResource("3_h8y8n")
-region = Rect2(72, 36, 18, 18)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ghhds"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0dnw1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0y75l"]
 atlas = ExtResource("5_dp5x0")
 region = Rect2(108, 36, 18, 18)
@@ -245,9 +230,8 @@ offset_right = 35.0
 offset_bottom = -7.0
 text = "Test	"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Camera2D"]
-position = Vector2(-170.25, -54)
-sprite_frames = SubResource("SpriteFrames_ghhds")
+[node name="Health2" parent="Camera2D" instance=ExtResource("3_ujhaq")]
+position = Vector2(-277, -132)
 
 [node name="Health" type="Node2D" parent="Camera2D"]
 script = ExtResource("4_pdtfd")
