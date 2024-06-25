@@ -44,5 +44,5 @@ animations = [{
 
 [node name="Health_Heart" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_1b45d")
-animation = &"0"
+animation = &"2"
 script = ExtResource("2_6kwye")
