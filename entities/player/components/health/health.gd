@@ -10,6 +10,9 @@ var health_heart: Resource = preload("res://entities/player/components/health/he
 
 func _ready():
 	
+	for i in 20:
+		print("Health_Heart" + str(i))
+		get_node("Health_Heart" + str(i)).visible = false
 	var sub: int = max / 2
 	for i in sub:
 		var new_heart: AnimatedSprite2D = health_heart.instantiate()
@@ -17,6 +20,6 @@ func _ready():
 		$".".add_child(new_heart)
 
 
-func _update(health: int):
+func update(health: int):
 	
 	pass

@@ -1,10 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://q60upyhtmqod"]
+[gd_scene load_steps=21 format=3 uid="uid://q60upyhtmqod"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_7utnr"]
 [ext_resource type="Texture2D" uid="uid://bbhk34q8qptcg" path="res://assets/sprites/entities/tilemap-characters_packed.png" id="1_und8p"]
 [ext_resource type="PackedScene" uid="uid://dbvkhruu7sfag" path="res://entities/player/components/health/health.tscn" id="3_ujhaq"]
-[ext_resource type="Script" path="res://entities/player/health.gd" id="4_pdtfd"]
-[ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="5_dp5x0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqe34"]
 atlas = ExtResource("1_und8p")
@@ -168,45 +166,6 @@ animations = [{
 radius = 9.0
 height = 23.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0y75l"]
-atlas = ExtResource("5_dp5x0")
-region = Rect2(108, 36, 18, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tprnt"]
-atlas = ExtResource("5_dp5x0")
-region = Rect2(90, 36, 18, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5xwh2"]
-atlas = ExtResource("5_dp5x0")
-region = Rect2(72, 36, 18, 18)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_06n6w"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0y75l")
-}],
-"loop": true,
-"name": &"0",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tprnt")
-}],
-"loop": true,
-"name": &"1",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5xwh2")
-}],
-"loop": true,
-"name": &"2",
-"speed": 5.0
-}]
-
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_7utnr")
 
@@ -223,39 +182,5 @@ zoom = Vector2(2, 2)
 limit_smoothed = true
 editor_draw_limits = true
 
-[node name="Button" type="Button" parent="Camera2D"]
-offset_left = 27.0
-offset_top = -15.0
-offset_right = 35.0
-offset_bottom = -7.0
-text = "Test	"
-
 [node name="Health2" parent="Camera2D" instance=ExtResource("3_ujhaq")]
-position = Vector2(-277, -132)
-
-[node name="Health" type="Node2D" parent="Camera2D"]
-script = ExtResource("4_pdtfd")
-
-[node name="Heart_1" type="AnimatedSprite2D" parent="Camera2D/Health"]
-position = Vector2(-277, -151)
-scale = Vector2(1.22222, 1.22222)
-sprite_frames = SubResource("SpriteFrames_06n6w")
-animation = &"2"
-
-[node name="Heart_2" type="AnimatedSprite2D" parent="Camera2D/Health"]
-position = Vector2(-255, -151)
-scale = Vector2(1.22222, 1.22222)
-sprite_frames = SubResource("SpriteFrames_06n6w")
-animation = &"2"
-
-[node name="Heart_3" type="AnimatedSprite2D" parent="Camera2D/Health"]
-position = Vector2(-233, -151)
-scale = Vector2(1.22222, 1.22222)
-sprite_frames = SubResource("SpriteFrames_06n6w")
-animation = &"2"
-
-[node name="Heart_4" type="AnimatedSprite2D" parent="Camera2D/Health"]
-position = Vector2(-211, -151)
-scale = Vector2(1.22222, 1.22222)
-sprite_frames = SubResource("SpriteFrames_06n6w")
-animation = &"2"
+position = Vector2(-279, -154)

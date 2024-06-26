@@ -88,7 +88,7 @@ func add_coin():
 
 func hurt():
 	health -= 1
-	$Health.update(health)
+	$Camera2D/Health2.update(health)
 	if health == 0:
 		print("Dead")
 
