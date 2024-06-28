@@ -170,10 +170,13 @@ animations = [{
 
 [node name="Gem" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_vlx2j")
-animation = &"red"
+animation = &"blue"
+frame_progress = 0.978564
 script = ExtResource("2_wyt2y")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-5, -4, 5, -4, 5, 1, 0, 6, -5, 1)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

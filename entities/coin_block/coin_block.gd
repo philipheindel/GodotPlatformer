@@ -1,6 +1,7 @@
 extends StaticBody2D
 
 
+@export_enum("Bronze", "Silver", "Gold", "Platinum") var coin_type: String = "Bronze"
 @export var popped: bool = false
 @export var coin_pop_offset: int = 20
 
@@ -24,6 +25,7 @@ func _physics_process(_delta):
 		if pop_frames == max_pop_frames:
 			$AnimatedSprite2D.animation = "popped"
 			var new_coin: AnimatedSprite2D = load("res://items/coin/coin.tscn").instantiate()
+			new_coin.coin_type = coin_type.to_lower()
 			new_coin.position = Vector2(position.x, position.y - coin_pop_offset)
 			get_tree().get_root().call_deferred("add_child", new_coin)
 			pop_direction = pop_direction * pop_direction

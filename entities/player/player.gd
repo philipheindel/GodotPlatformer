@@ -82,7 +82,7 @@ func _physics_process(delta):
 			pass
 
 
-func add_coin():
+func add_coin() -> void:
 	coin_count += 1
 
 
