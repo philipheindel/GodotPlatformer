@@ -60,7 +60,9 @@ coin_type = "Red"
 [node name="Gem2" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(555, -17)
 animation = &"green"
+frame_progress = 0.0
 coin_type = "Green"
+bounce = false
 
 [node name="Gem3" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(575, -17)
