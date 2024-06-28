@@ -1,10 +1,18 @@
 extends AnimatedSprite2D
 
 
+@export_enum("Bronze", "Silver", "Gold", "Platinum") var coin_type: String = "Bronze"
+
+
 var collected: bool = false
 
 
-func _physics_process(_delta):
+func _ready():
+	$".".animation = coin_type.to_lower()
+	$".".play()
+
+
+func _process(delta):
 	if collected and not $AudioStreamPlayer.playing:
 		queue_free()
 

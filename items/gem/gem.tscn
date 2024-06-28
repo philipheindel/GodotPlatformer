@@ -1,6 +1,7 @@
-[gd_scene load_steps=24 format=3 uid="uid://c7a0poe57ccya"]
+[gd_scene load_steps=25 format=3 uid="uid://c7a0poe57ccya"]
 
 [ext_resource type="Texture2D" uid="uid://cyfrufb2rymsi" path="res://assets/sprites/entities/items.png" id="1_ystj1"]
+[ext_resource type="Script" path="res://items/gem/gem.gd" id="2_wyt2y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv20r"]
 atlas = ExtResource("1_ystj1")
@@ -112,7 +113,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"blue",
-"speed": 5.0
+"speed": 11.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -169,5 +170,10 @@ animations = [{
 
 [node name="Gem" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_vlx2j")
-animation = &"blue"
-autoplay = "red"
+animation = &"red"
+script = ExtResource("2_wyt2y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-5, -4, 5, -4, 5, 1, 0, 6, -5, 1)

@@ -144,13 +144,11 @@ radius = 5.0
 
 [node name="Coin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_aix7a")
-animation = &"gold"
-autoplay = "bronze"
-frame_progress = 0.205059
+animation = &"bronze"
+frame_progress = 0.587261
 script = ExtResource("2_vr5gi")
 
 [node name="Area2D" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_vyf4o")

@@ -35,6 +35,7 @@ position = Vector2(439, -33)
 
 [node name="Coin" parent="." instance=ExtResource("4_bg0oh")]
 position = Vector2(411, -14)
+coin_type = "Silver"
 
 [node name="Coin2" parent="." instance=ExtResource("4_bg0oh")]
 position = Vector2(387, -14)
@@ -52,10 +53,14 @@ position = Vector2(630, -12)
 [node name="Gem" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(536, -17)
 animation = &"red"
+frame_progress = 0.0
+coin_type = "Red"
 
 [node name="Gem2" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(555, -17)
 animation = &"green"
+frame_progress = 0.0
+coin_type = "Green"
 
 [node name="Gem3" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(575, -17)
