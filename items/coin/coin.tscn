@@ -145,7 +145,7 @@ radius = 5.0
 [node name="Coin" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_aix7a")
 animation = &"bronze"
-frame_progress = 0.681664
+frame_progress = 0.296667
 script = ExtResource("2_vr5gi")
 
 [node name="Area2D" type="Area2D" parent="."]
