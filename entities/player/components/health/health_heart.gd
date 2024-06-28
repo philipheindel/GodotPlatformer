@@ -5,9 +5,9 @@ extends AnimatedSprite2D
 
 
 func _ready():
-	$".".animation = "0"
+	animation = "0"
 
 
 func hit():
 	level -= 1
-	$".".animation = str(level)
+	animation = str(level)

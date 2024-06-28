@@ -171,7 +171,7 @@ animations = [{
 [node name="Gem" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_vlx2j")
 animation = &"blue"
-frame_progress = 0.571944
+frame_progress = 0.928567
 script = ExtResource("2_wyt2y")
 
 [node name="Area2D" type="Area2D" parent="."]

@@ -8,8 +8,8 @@ var collected: bool = false
 
 
 func _ready():
-	$".".animation = coin_type.to_lower()
-	$".".play()
+	animation = coin_type.to_lower()
+	play()
 
 
 func _process(delta):

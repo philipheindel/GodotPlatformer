@@ -17,7 +17,7 @@ func _ready():
 	for i in sub:
 		var new_heart: AnimatedSprite2D = health_heart.instantiate()
 		new_heart.position.x = new_heart.position.x + 20
-		$".".add_child(new_heart)
+		add_child(new_heart)
 
 
 func update(health: int):
