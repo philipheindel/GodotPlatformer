@@ -1,66 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbvkhruu7sfag"]
+[gd_scene load_steps=2 format=3 uid="uid://dbvkhruu7sfag"]
 
 [ext_resource type="Script" path="res://entities/player/components/health/health.gd" id="1_p7ptg"]
-[ext_resource type="PackedScene" uid="uid://cb5bh8dbfpq3b" path="res://entities/player/components/health/health_heart.tscn" id="2_7ack6"]
 
 [node name="Health" type="Node2D"]
 script = ExtResource("1_p7ptg")
-
-[node name="Health_Heart0" parent="." instance=ExtResource("2_7ack6")]
-
-[node name="Health_Heart1" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(18, 0)
-
-[node name="Health_Heart2" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(36, 0)
-
-[node name="Health_Heart3" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(54, 0)
-
-[node name="Health_Heart4" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(72, 0)
-
-[node name="Health_Heart5" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(90, 0)
-
-[node name="Health_Heart6" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(108, 0)
-
-[node name="Health_Heart7" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(126, 0)
-
-[node name="Health_Heart8" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(144, 0)
-
-[node name="Health_Heart9" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(162, 0)
-
-[node name="Health_Heart10" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(0, 18)
-
-[node name="Health_Heart11" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(18, 18)
-
-[node name="Health_Heart12" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(36, 18)
-
-[node name="Health_Heart13" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(54, 18)
-
-[node name="Health_Heart14" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(72, 18)
-
-[node name="Health_Heart15" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(90, 18)
-
-[node name="Health_Heart16" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(108, 18)
-
-[node name="Health_Heart17" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(126, 18)
-
-[node name="Health_Heart18" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(144, 18)
-
-[node name="Health_Heart19" parent="." instance=ExtResource("2_7ack6")]
-position = Vector2(162, 18)

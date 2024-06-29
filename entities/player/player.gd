@@ -26,7 +26,7 @@ func _ready():
 	$AnimatedSprite2D.animation = _get_animation("idle")
 	$AnimatedSprite2D.play()
 	$Camera2D.set_as_top_level(true)
-	
+	$Camera2D/Health.max = health
 
 func _process(delta):
 	$Camera2D.position.x = position.x
@@ -88,7 +88,7 @@ func add_coin() -> void:
 
 func hurt():
 	health -= 1
-	$Camera2D/Health2.update(health)
+	$Camera2D/Health.update(health)
 	if health == 0:
 		print("Dead")
 

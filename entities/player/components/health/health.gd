@@ -1,25 +1,32 @@
 extends Node2D
 
 
-@export var max: int = 6
+@export var max: int = 10
 @export var current: int = 0
 
 
+var position_offset: int = 0
 var health_heart: Resource = preload("res://entities/player/components/health/health_heart.tscn")
 
 
-func _ready():
-	
-	for i in 20:
-		print("Health_Heart" + str(i))
-		get_node("Health_Heart" + str(i)).visible = false
-	var sub: int = max / 2
-	for i in sub:
+func _ready() -> void:
+	var hearts: int = max / 2
+	for i in hearts:
 		var new_heart: AnimatedSprite2D = health_heart.instantiate()
-		new_heart.position.x = new_heart.position.x + 20
+		new_heart.position.x = new_heart.position.x + position_offset
 		add_child(new_heart)
+		position_offset += 18
 
 
-func update(health: int):
-	
-	pass
+func update(health: int) -> void:
+	var amount: int = 0
+	for heart in get_children():
+		heart.animation = "0"
+		if amount >= health:
+			continue
+		if amount < health:
+			heart.animation = "1"
+			amount += 1
+		if amount < health:
+			heart.animation = "2"
+			amount += 1

@@ -182,5 +182,5 @@ zoom = Vector2(2, 2)
 limit_smoothed = true
 editor_draw_limits = true
 
-[node name="Health2" parent="Camera2D" instance=ExtResource("3_ujhaq")]
+[node name="Health" parent="Camera2D" instance=ExtResource("3_ujhaq")]
 position = Vector2(-279, -154)

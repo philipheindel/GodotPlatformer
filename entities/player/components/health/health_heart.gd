@@ -5,7 +5,7 @@ extends AnimatedSprite2D
 
 
 func _ready():
-	animation = "0"
+	animation = "2"
 
 
 func hit():
