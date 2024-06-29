@@ -2,7 +2,6 @@ extends Node2D
 
 
 @export var max: int = 10
-@export var current: int = 0
 
 
 var position_offset: int = 0
