@@ -1,7 +1,7 @@
 extends Node2D
 
 
-func update(health: int):
+func update(health: int) -> void:
 	var max_health: int = 0
 	for point in range(1, 5):
 		get_node("Heart_" + str(point)).animation = "0"

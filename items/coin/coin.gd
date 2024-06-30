@@ -7,17 +7,17 @@ extends AnimatedSprite2D
 var collected: bool = false
 
 
-func _ready():
+func _ready() -> void:
 	animation = coin_type.to_lower()
 	play()
 
 
-func _process(delta):
+func _process(delta) -> void:
 	if collected and not $AudioStreamPlayer.playing:
 		queue_free()
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body) -> void:
 	if body.name == "Player":
 		collected = true
 		$AudioStreamPlayer.play()

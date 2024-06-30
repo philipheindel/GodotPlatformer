@@ -9,7 +9,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	return
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -26,6 +26,6 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func _on_area_2d_body_entered(body):
+func _on_area_2d_body_entered(body) -> void:
 	if body.name == "Player":
 		body.hurt()
