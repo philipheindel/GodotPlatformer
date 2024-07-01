@@ -66,6 +66,7 @@ position = Vector2(630, 42)
 [node name="Gem" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(536, 37)
 coin_type = "Red"
+bounce = false
 
 [node name="Gem2" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(555, 37)
@@ -76,5 +77,6 @@ bounce = false
 
 [node name="Gem3" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(575, 37)
+bounce = false
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

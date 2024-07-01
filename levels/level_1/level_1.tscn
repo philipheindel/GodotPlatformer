@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8du0kf62d60d"]
+[gd_scene load_steps=8 format=3 uid="uid://b8du0kf62d60d"]
 
 [ext_resource type="Script" path="res://levels/level_1/level_1.gd" id="1_wglv8"]
 [ext_resource type="TileSet" uid="uid://cakt5uva06c6h" path="res://levels/tile_set.tres" id="2_7qmai"]
 [ext_resource type="PackedScene" uid="uid://q60upyhtmqod" path="res://entities/player/player.tscn" id="3_xqfp6"]
 [ext_resource type="PackedScene" uid="uid://uqyuj5qrdujq" path="res://items/coin/coin.tscn" id="4_iq8h8"]
 [ext_resource type="PackedScene" uid="uid://qvq28rkkouix" path="res://entities/coin_block/coin_block.tscn" id="5_nt26p"]
+[ext_resource type="PackedScene" uid="uid://c7a0poe57ccya" path="res://items/gem/gem.tscn" id="7_8rrl2"]
 [ext_resource type="PackedScene" uid="uid://b0yf2ne02xmlj" path="res://entities/drill_head/drill_head.tscn" id="7_is5gl"]
 
 [node name="Level_1" type="Node2D"]
@@ -60,3 +61,6 @@ position = Vector2(1242, -42)
 
 [node name="Drill_Head" parent="." instance=ExtResource("7_is5gl")]
 position = Vector2(1108, -13)
+
+[node name="Gem" parent="." instance=ExtResource("7_8rrl2")]
+position = Vector2(546, -25.9588)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c7a0poe57ccya"]
+[gd_scene load_steps=27 format=3 uid="uid://c7a0poe57ccya"]
 
 [ext_resource type="Texture2D" uid="uid://cyfrufb2rymsi" path="res://assets/sprites/entities/items.png" id="1_ystj1"]
 [ext_resource type="Script" path="res://items/gem/gem.gd" id="2_wyt2y"]
@@ -168,15 +168,46 @@ animations = [{
 "speed": 11.0
 }]
 
-[node name="Gem" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_vlx2j")
-animation = &"blue"
-frame_progress = 0.399419
+[sub_resource type="Animation" id="Animation_m5tky"]
+resource_name = "bounce"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fwxyc"]
+_data = {
+"bounce": SubResource("Animation_m5tky")
+}
+
+[node name="Gem" type="Node2D"]
 script = ExtResource("2_wyt2y")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vlx2j")
+animation = &"blue"
+frame_progress = 0.477424
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/Area2D"]
 polygon = PackedVector2Array(-5, -4, 5, -4, 5, 1, 0, 6, -5, 1)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimatedSprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_fwxyc")
+}
+autoplay = "bounce"
+
+[connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

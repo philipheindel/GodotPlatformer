@@ -1,4 +1,4 @@
-extends AnimatedSprite2D
+extends Node2D
 
 
 @export_enum("Red", "Green", "Blue") var coin_type: String = "Blue"
@@ -16,8 +16,10 @@ var bounce_min: int
 func _ready() -> void:
 	bounce_max = position.y + bounce_range
 	bounce_min = position.y + (bounce_range * -1)
-	animation = coin_type.to_lower()
-	play()
+	$AnimatedSprite2D.animation = coin_type.to_lower()
+	$AnimationPlayer.play("bounce")
+
+	$AnimatedSprite2D.play()
 
 
 func _physics_process(delta) -> void:
