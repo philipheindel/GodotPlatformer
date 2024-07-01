@@ -39,7 +39,7 @@ position = Vector2(458, 4)
 position = Vector2(440, 4)
 
 [node name="Coin" parent="." instance=ExtResource("4_bg0oh")]
-position = Vector2(577, 22)
+position = Vector2(578, 22)
 coin_type = "Platinum"
 
 [node name="Coin2" parent="." instance=ExtResource("4_bg0oh")]
@@ -70,8 +70,6 @@ bounce = false
 
 [node name="Gem2" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(555, 37)
-animation = &"green"
-frame_progress = 0.0
 coin_type = "Green"
 bounce = false
 
