@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cb5bh8dbfpq3b"]
+[gd_scene load_steps=6 format=3 uid="uid://cb5bh8dbfpq3b"]
 
 [ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="1_0st5e"]
-[ext_resource type="Script" path="res://entities/player/components/health/health_heart.gd" id="2_6kwye"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2xkeb"]
 atlas = ExtResource("1_0st5e")
@@ -45,4 +44,3 @@ animations = [{
 [node name="Health_Heart" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_1b45d")
 animation = &"2"
-script = ExtResource("2_6kwye")

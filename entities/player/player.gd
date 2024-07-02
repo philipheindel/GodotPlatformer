@@ -22,13 +22,14 @@ var falling: bool = false
 var jump_total: float = 0.0
 
 
-func _ready():
+func _ready() -> void:
 	$AnimatedSprite2D.animation = _get_animation("idle")
 	$AnimatedSprite2D.play()
 	$Camera2D.set_as_top_level(true)
 	$Camera2D/Health.max = health
 
-func _process(delta):
+
+func _process(_delta) -> void:
 	$Camera2D.position.x = position.x
 	#$Camera2D.position.x = $".".position.x
 	if velocity.y != 0:
@@ -38,19 +39,41 @@ func _process(delta):
 	pass
 
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
 		falling = false
 	
-	if velocity.y > 0:
-		falling = true
+	#if velocity.y > 0:
+		#falling = true
+	#
+	#if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")):
+		#falling = true
+		#jump_total = 0.0
 	
-	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")):
-		falling = true
-		jump_total = 0.0
+	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and velocity.y < 0:
+		velocity.y = JUMP_VELOCITY / 4
 	
+	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")):
+		velocity.y = JUMP_VELOCITY
+	
+	var direction = Input.get_axis("ui_left", "ui_right")
+	if direction:
+		$AnimatedSprite2D.animation = _get_animation("walking")
+		if direction == 1:
+			$AnimatedSprite2D.flip_h = true
+		elif direction == -1:
+			$AnimatedSprite2D.flip_h = false
+		velocity.x = direction * SPEED
+	else:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		$AnimatedSprite2D.animation = _get_animation("idle")
+	move_and_slide()
+	return
 	if not falling and (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")):
 		velocity.y = JUMP_VELOCITY * (jump_total * 10)
 		jump_total += delta
@@ -58,8 +81,7 @@ func _physics_process(delta):
 			falling = true
 			jump_total = 0.0
 	
-	
-	var direction = Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("ui_left", "ui_right")
 	if direction:
 		$AnimatedSprite2D.animation = _get_animation("walking")
 		if direction == 1:
@@ -86,7 +108,7 @@ func add_coin() -> void:
 	coin_count += 1
 
 
-func hurt():
+func hurt() -> void:
 	health -= 1
 	$Camera2D/Health.update(health)
 	if health == 0:
