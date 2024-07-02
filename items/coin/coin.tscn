@@ -142,19 +142,21 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_vyf4o"]
 radius = 5.0
 
-[node name="Coin" type="AnimatedSprite2D"]
-sprite_frames = SubResource("SpriteFrames_aix7a")
-animation = &"bronze"
-frame_progress = 0.751208
+[node name="Node2D" type="Node2D"]
 script = ExtResource("2_vr5gi")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Coin" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_aix7a")
+animation = &"bronze"
+frame_progress = 0.448954
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="Area2D" type="Area2D" parent="Coin"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin/Area2D"]
 shape = SubResource("CircleShape2D_vyf4o")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pmrpu")
 bus = &"Coins"
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Coin/Area2D" to="." method="_on_area_2d_body_entered"]

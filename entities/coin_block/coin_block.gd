@@ -7,35 +7,32 @@ extends Node2D
 
 
 var popping: bool = false
-var pop_direction: int = -1
-var max_pop_frames: int = 5
-var pop_frames: int = 0
+var done: bool = false
 
 
-func _physics_process(_delta) -> void:
-	if popped:
-		return
-	if popping:
-		pop_frames += 1
-		position.y = position.y + pop_direction
-		if pop_frames == max_pop_frames and pop_direction > 0:
-			#remove_child($Area2D)
-			popped = true
-			return
-		if pop_frames == max_pop_frames:
-			$Coin_Block/AnimatedSprite2D.animation = "popped"
-			var new_coin: AnimatedSprite2D = load("res://items/coin/coin.tscn").instantiate()
-			new_coin.coin_type = coin_type.to_lower()
-			new_coin.position = Vector2(position.x, position.y - coin_pop_offset)
-			get_tree().get_root().call_deferred("add_child", new_coin)
-			pop_direction = pop_direction * pop_direction
-			pop_frames = 0
+func _ready() -> void:
+	$Coin.update_animation(coin_type.to_lower())
 
 
 func _on_area_2d_body_entered(body) -> void:
-	if popped or popping:
+	if popped or popping or done:
 		# Play "thud" sound
 		return
 	if body.name == "Player":
-		$AudioStreamPlayer.play()
 		popping = true
+		$AudioStreamPlayer.play()
+		$AnimationPlayer.play("pop")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if popped:
+		popped = false
+		done = true
+		return
+	if popping:
+		popping = false
+		popped = true
+		$RigidBody2D/AnimatedSprite2D.animation = "popped"
+		$Coin.position = Vector2($RigidBody2D.position.x, $RigidBody2D.position.y - coin_pop_offset)
+		$AnimationPlayer.play_backwards("pop")
+		return

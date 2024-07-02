@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://qvq28rkkouix"]
+[gd_scene load_steps=12 format=3 uid="uid://qvq28rkkouix"]
 
 [ext_resource type="Script" path="res://entities/coin_block/coin_block.gd" id="1_62pr2"]
 [ext_resource type="Texture2D" uid="uid://vq1npgur3g83" path="res://assets/sprites/level/tilemap_packed_alt.png" id="1_82841"]
+[ext_resource type="PackedScene" uid="uid://uqyuj5qrdujq" path="res://items/coin/coin.tscn" id="2_fkhvp"]
 [ext_resource type="AudioStream" uid="uid://ba0s42ox8f7rb" path="res://assets/audio/impactMetal_light_002.ogg" id="3_01lo2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbj16"]
@@ -38,41 +39,43 @@ size = Vector2(18, 17)
 size = Vector2(14, 4)
 
 [sub_resource type="Animation" id="Animation_chipy"]
-resource_name = "bounce"
-length = 0.5
+resource_name = "pop"
+length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Coin_Block:position")
+tracks/0/path = NodePath("RigidBody2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -3), Vector2(0, 0)]
+"values": [Vector2(0, 0), Vector2(0, -3)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cncj6"]
 _data = {
-"bounce": SubResource("Animation_chipy")
+"pop": SubResource("Animation_chipy")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Coin_Block" type="Node2D"]
 script = ExtResource("1_62pr2")
 
-[node name="Coin_Block" type="StaticBody2D" parent="."]
+[node name="Coin" parent="." instance=ExtResource("2_fkhvp")]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Coin_Block"]
+[node name="RigidBody2D" type="StaticBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="RigidBody2D"]
 sprite_frames = SubResource("SpriteFrames_3dhpc")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin_Block"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_npfg7")
 
-[node name="Area2D" type="Area2D" parent="Coin_Block"]
+[node name="Area2D" type="Area2D" parent="RigidBody2D"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin_Block/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D/Area2D"]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_46h3k")
 
@@ -85,4 +88,5 @@ libraries = {
 "": SubResource("AnimationLibrary_cncj6")
 }
 
-[connection signal="body_entered" from="Coin_Block/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="RigidBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
