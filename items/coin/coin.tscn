@@ -181,7 +181,7 @@ script = ExtResource("2_vr5gi")
 [node name="Coin" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_aix7a")
 animation = &"bronze"
-frame_progress = 0.485947
+frame_progress = 0.814627
 
 [node name="Area2D" type="Area2D" parent="Coin"]
 

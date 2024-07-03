@@ -18,5 +18,10 @@ func _on_area_2d_body_entered(body) -> void:
 	if body.name == "Player":
 		collected = true
 		#$AudioStreamPlayer.play()
+		$AnimationPlayer.play("collect")
 		body.add_coin()
-		visible = false
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if anim_name == "collect":
+		queue_free()
