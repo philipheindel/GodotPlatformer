@@ -11,7 +11,17 @@ const JUMP_VELOCITY: float = -300.0
 @export var health: int = 8
 
 
-@export_subgroup("Physics")
+@export_category("Movement")
+@export_subgroup("Jumping")
+@export var jump_peak_time: float = 0.5
+@export var jump_fall_time: float = 0.5
+@export var jump_height: float = 2.0
+@export var jump_distance: float = 4.0
+var speed: float = 5.0
+var jump_velocity: float = 5.0
+var jump_gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var fall_gravity = 5.0
+
 @export var max_jump_duration: float = 0.1
 @export var do_inertia: bool = true
 
@@ -23,6 +33,7 @@ var jump_total: float = 0.0
 
 
 func _ready() -> void:
+	_calculate_movement_params()
 	$AnimatedSprite2D.animation = _get_animation("idle")
 	$AnimatedSprite2D.play()
 	$Camera2D.set_as_top_level(true)
@@ -33,28 +44,27 @@ func _process(_delta) -> void:
 	$Camera2D.position.x = position.x
 	#$Camera2D.position.x = $".".position.x
 	if velocity.y != 0:
-		print(velocity.y)
-		print($Camera2D.position.y)
+		#print(velocity.y)
+		#print($Camera2D.position.y)
 		$Camera2D.position.y = 0
 	pass
 
 
-func _physics_process(delta) -> void:
+func _physics_process(delta: float) -> void:
+	print(is_on_floor())
 	if not is_on_floor():
-		velocity.y += gravity * delta
+		if velocity.y > 0:
+			velocity.y -= jump_gravity * delta
+		else:
+			velocity.y -= fall_gravity * delta
 
-	if not is_on_floor():
-		velocity.y += gravity * delta
-	else:
-		falling = false
-	
-	#if velocity.y > 0:
-		#falling = true
-	#
-	#if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")):
-		#falling = true
-		#jump_total = 0.0
-	
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		velocity.y = jump_velocity
+
+
+	# https://www.youtube.com/watch?v=FvFx1R3p-aw
+	move_and_slide()
+	return
 	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and velocity.y < 0:
 		velocity.y = JUMP_VELOCITY / 4
 	
@@ -118,3 +128,7 @@ func hurt() -> void:
 func _get_animation(animation: String) -> String:
 	return "{player_type}_{animation}".format({"player_type": player_type, "animation": animation}).to_lower()
 
+func _calculate_movement_params() -> void:
+	jump_gravity = (2 * jump_height) / pow(jump_peak_time, 2)
+	fall_gravity = (2 * jump_height) / pow(jump_fall_time, 2)
+	jump_velocity = jump_gravity * jump_peak_time
