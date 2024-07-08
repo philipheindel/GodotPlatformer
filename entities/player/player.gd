@@ -15,7 +15,7 @@ const JUMP_VELOCITY: float = -300.0
 @export_subgroup("Jumping")
 @export var jump_peak_time: float = 0.5
 @export var jump_fall_time: float = 0.5
-@export var jump_height: float = 5.0
+@export var jump_height: float = 1.0
 @export var jump_distance: float = 4.0
 var speed: float = 5.0
 var jump_velocity: float = 5.0
@@ -63,12 +63,14 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		#velocity.y += gravity * delta
 		if velocity.y > 0:
-			velocity.y -= jump_gravity * delta
+			velocity.y += jump_gravity * delta
 		else:
-			velocity.y -= fall_gravity * delta
+			velocity.y += fall_gravity * delta
 
 	if (Input.is_action_pressed("ui_up") or Input.is_action_pressed("ui_accept")) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and velocity.y < 0:
+		velocity.y = jump_velocity / 4
 
 	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and not is_on_floor():
 		falling = true
@@ -90,14 +92,16 @@ func _physics_process(delta: float) -> void:
 	return
 	#print(velocity.y)
 	if not is_on_floor():
-		#velocity.y -= jump_gravity * delta
+		velocity.y -= jump_gravity * delta
 		if velocity.y > 0:
 			velocity.y -= jump_gravity * delta
 		else:
 			velocity.y -= fall_gravity * delta
 
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = jump_velocity
+	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	#	velocity.y = jump_velocity
+	if (Input.is_action_just_released("ui_up") or Input.is_action_just_released("ui_accept")) and velocity.y < 0:
+		velocity.y = jump_velocity / 4
 
 
 	# https://www.youtube.com/watch?v=FvFx1R3p-aw
