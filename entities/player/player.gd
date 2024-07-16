@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED: float = 200.0
-const JUMP_VELOCITY: float = -300.0
+const JUMP_VELOCITY: float = -350.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -48,9 +48,9 @@ func _physics_process(delta: float) -> void:
 			$AnimatedSprite2D.flip_h = true
 		elif direction == -1:
 			$AnimatedSprite2D.flip_h = false
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * SPEED, delta * 750)	
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, delta * 750)
 		$AnimatedSprite2D.animation = _get_animation("idle")
 
 	move_and_slide()

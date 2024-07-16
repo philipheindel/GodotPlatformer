@@ -46,21 +46,29 @@ position = Vector2(1152, -42)
 
 [node name="Coin_Block2" parent="." instance=ExtResource("5_nt26p")]
 position = Vector2(1170, -42)
+coin_type = "Silver"
 
 [node name="Coin_Block3" parent="." instance=ExtResource("5_nt26p")]
 position = Vector2(1188, -42)
+coin_type = "Gold"
 
 [node name="Coin_Block4" parent="." instance=ExtResource("5_nt26p")]
 position = Vector2(1206, -42)
+coin_type = "Platinum"
 
 [node name="Coin_Block5" parent="." instance=ExtResource("5_nt26p")]
 position = Vector2(1224, -42)
-
-[node name="Coin_Block6" parent="." instance=ExtResource("5_nt26p")]
-position = Vector2(1242, -42)
+coin_type = "Gold"
 
 [node name="Drill_Head" parent="." instance=ExtResource("7_is5gl")]
 position = Vector2(1108, -13)
 
 [node name="Gem" parent="." instance=ExtResource("7_8rrl2")]
 position = Vector2(546, -25.9588)
+
+[node name="Coin_Block6" parent="." instance=ExtResource("5_nt26p")]
+position = Vector2(1242, -42)
+coin_type = "Silver"
+
+[node name="Coin_Block7" parent="." instance=ExtResource("5_nt26p")]
+position = Vector2(1260, -42)
