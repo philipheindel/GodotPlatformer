@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cyfrufb2rymsi" path="res://assets/sprites/entities/items.png" id="1_32scp"]
 [ext_resource type="Script" path="res://items/coin/coin.gd" id="2_vr5gi"]
-[ext_resource type="AudioStream" uid="uid://nbpca6h03e48" path="res://assets/audio/impactGlass_light_002.ogg" id="3_pmrpu"]
+[ext_resource type="AudioStream" uid="uid://p5a2c8av3otb" path="res://assets/audio/collect_coin.ogg" id="3_3iihw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7d717"]
 atlas = ExtResource("1_32scp")
@@ -189,7 +189,7 @@ frame_progress = 0.952696
 shape = SubResource("CircleShape2D_vyf4o")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_pmrpu")
+stream = ExtResource("3_3iihw")
 bus = &"Coins"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

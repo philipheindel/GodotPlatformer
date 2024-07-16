@@ -13,8 +13,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 @export_category("Movement")
-@export_subgroup("Moving")
-@export var do_inertia: bool = true
 @export_subgroup("Jumping")
 @export var max_jump_duration: float = 0.1
 
