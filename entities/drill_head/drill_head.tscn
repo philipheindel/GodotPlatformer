@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b0yf2ne02xmlj"]
+[gd_scene load_steps=9 format=3 uid="uid://b0yf2ne02xmlj"]
 
 [ext_resource type="Texture2D" uid="uid://bbhk34q8qptcg" path="res://assets/sprites/entities/tilemap-characters_packed.png" id="1_38l72"]
 [ext_resource type="Script" path="res://entities/drill_head/drill_head.gd" id="1_xbahd"]
@@ -28,19 +28,48 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hcp02"]
 size = Vector2(11, 9)
 
-[node name="Drill_Head" type="CharacterBody2D"]
+[sub_resource type="Animation" id="Animation_20ewu"]
+resource_name = "patrol"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-150, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ynigb"]
+_data = {
+"patrol": SubResource("Animation_20ewu")
+}
+
+[node name="Drill_Head" type="Node2D"]
 script = ExtResource("1_xbahd")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 sprite_frames = SubResource("SpriteFrames_qh14m")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.5, 7.5)
 shape = SubResource("RectangleShape2D_hcp02")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CharacterBody2D/Area2D"]
 polygon = PackedVector2Array(-1, -4, -4, 1, -7, 4, -7, 12, 6, 12, 6, 4, 3, 1, 0, -4)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ynigb")
+}
+autoplay = "patrol"
+
+[connection signal="body_entered" from="CharacterBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
