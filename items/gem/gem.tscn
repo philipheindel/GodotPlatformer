@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://c7a0poe57ccya"]
+[gd_scene load_steps=29 format=3 uid="uid://c7a0poe57ccya"]
 
 [ext_resource type="Texture2D" uid="uid://cyfrufb2rymsi" path="res://assets/sprites/entities/items.png" id="1_ystj1"]
 [ext_resource type="Script" path="res://items/gem/gem.gd" id="2_wyt2y"]
+[ext_resource type="AudioStream" uid="uid://blwea4wiq2kmx" path="res://assets/audio/collect_gem.ogg" id="3_0a107"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xv20r"]
 atlas = ExtResource("1_ystj1")
@@ -220,6 +221,10 @@ frame_progress = 0.438712
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatedSprite2D/Area2D"]
 polygon = PackedVector2Array(-5, -4, 5, -4, 5, 1, 0, 6, -5, 1)
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0a107")
+bus = &"Coins"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimatedSprite2D")
 libraries = {
@@ -228,4 +233,5 @@ libraries = {
 autoplay = "bounce"
 
 [connection signal="body_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

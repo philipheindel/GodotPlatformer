@@ -45,7 +45,7 @@ offset_bottom = -2.0
 text = "Start"
 
 [node name="Drill_Head" parent="." instance=ExtResource("6_so0t6")]
-position = Vector2(630, 42)
+position = Vector2(692, 60)
 
 [node name="Gem" parent="." instance=ExtResource("7_efooy")]
 position = Vector2(492, 38)
