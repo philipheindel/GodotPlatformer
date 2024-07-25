@@ -65,5 +65,10 @@ func hurt() -> void:
 		print("Dead")
 
 
+func enable_camera(state: bool = true) -> void:
+	$Camera2D.enabled = state
+	$Camera2D.visible = state
+
+
 func _get_animation(animation: String) -> String:
 	return "{player_type}_{animation}".format({"player_type": player_type, "animation": animation}).to_lower()
