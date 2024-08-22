@@ -21,7 +21,7 @@ func _ready() -> void:
 	$AnimatedSprite2D.animation = _get_animation("idle")
 	$AnimatedSprite2D.play()
 	$Camera2D.set_as_top_level(true)
-	$Camera2D/Health.max = health
+	$Camera2D/Health.health_max = health
 
 
 func _process(_delta: float) -> void:

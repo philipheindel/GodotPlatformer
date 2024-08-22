@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@export var max: int = 10
+@export var health_max: int = 10
 
 
 var position_offset: int = 0
@@ -9,7 +9,7 @@ var health_heart: Resource = preload("res://entities/player/components/health/he
 
 
 func _ready() -> void:
-	var hearts: int = max / 2
+	var hearts: int = health_max / 2
 	for i in hearts:
 		var new_heart: AnimatedSprite2D = health_heart.instantiate()
 		new_heart.position.x = new_heart.position.x + position_offset
